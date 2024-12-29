@@ -1,0 +1,5653 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Bargainwale",
+    "description": "Here’s a refined version of the Postman API documentation description for **BargainWale** with enhanced structure and language:\n\n---\n\n## **BargainWale API Documentation**\n\n**Base URL:** `https://api.bargainwale.com`\n\nEffortlessly manage transactions, streamline orders, and unlock unstoppable growth with **BargainWale**. Our all-in-one business management solution simplifies operations and boosts efficiency, empowering businesses to thrive with unmatched ease.\n\n---\n\n### **Features Overview**\n\n#### **1\\. Streamlined Order Management**\n\n- Centralized dashboard to track and manage orders in real-time.\n    \n- Bulk processing capabilities for faster transaction handling.\n    \n\n#### **2\\. Automated Inventory Tracking**\n\n- Stay updated on stock levels with real-time monitoring.\n    \n- Receive low-stock alerts and synchronize inventory across multiple sales channels automatically.\n    \n\n#### **3\\. Dynamic Pricing and Discounts**\n\n- Set up tailored pricing structures for different customer groups like wholesalers and retailers.\n    \n- Automate discounts and promotions to drive sales effortlessly.\n    \n\n#### **4\\. Seamless Buyer-Seller Communication**\n\n- Integrated chat system for smooth negotiation and discussion.\n    \n- Maintain a record of interactions for transparency and effective follow-ups.\n    \n\n#### **5\\. In-Depth Analytics and Reporting**\n\n- Gain insights through detailed reports on sales, inventory, and profitability.\n    \n- Access visual dashboards for a quick snapshot of your business performance.\n    \n\n#### **6\\. Secure Payment and Invoicing**\n\n- Integrated payment gateways for hassle-free transactions.\n    \n- Generate professional invoices instantly and securely.\n    \n\n#### **7\\. Integration with Essential Tools**\n\n- Connect seamlessly with accounting software, logistics providers, and other essential tools for end-to-end operation management.\n    \n\n#### **8\\. Mobile-Friendly Accessibility**\n\n- Manage your business on the go with our fully responsive design and dedicated mobile app.\n    \n- Stay connected to orders, inventory, and payments anytime, anywhere.\n    \n\n---\n\n### **API Endpoints**\n\nBelow is a summary of available API endpoints to access and integrate BargainWale's functionalities:\n\n#### **Order Management**\n\n- **Create Order**: Initiate a new order in the system.\n    \n- **Update Order**: Modify existing order details.\n    \n- **View Orders**: Retrieve a list of all orders.\n    \n\n#### **Inventory Management**\n\n- **Get Inventory Levels**: Retrieve stock details for all products.\n    \n- **Update Stock**: Adjust stock quantities manually.\n    \n\n#### **Dynamic Pricing**\n\n- **Set Pricing Rules**: Configure custom pricing for customer groups.\n    \n- **Apply Discounts**: Automate discounts on selected products.\n    \n\n#### **Communication**\n\n- **Send Message**: Initiate a chat with a buyer or seller.\n    \n- **Get Chat History**: Retrieve conversation logs for reference.\n    \n\n#### **Analytics & Reports**\n\n- **Get Sales Reports**: Access detailed sales performance metrics.\n    \n- **Inventory Trends**: Analyze inventory patterns over time.\n    \n\n#### **Payments & Invoicing**\n\n- **Process Payment**: Execute secure payment transactions.\n    \n- **Generate Invoice**: Create and download invoices in real-time.\n    \n\n#### **Integration Tools**\n\n- **Connect Accounting Software**: Link your existing accounting tools with BargainWale.\n    \n- **Sync Logistics Providers**: Automate order delivery updates and tracking.\n    \n\n---\n\n### **Authentication**\n\nBargainWale APIs are secured and require API keys for authentication. Add the `API-Key` header with your unique key in all requests.\n\n---\n\n### **Usage Notes**\n\n- Ensure that your requests adhere to the API rate limits to avoid throttling.\n    \n- Use HTTPS for all API requests to guarantee data security.\n    \n\nFor further assistance, explore our [Developer Documentation](https://www.bargainwale.com/developer) or contact our support team.\n\n---\n\nLet me know if you'd like to customize it further!",
+    "contact": {},
+    "version": "1.0"
+  },
+  "jsonSchemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "servers": [
+    {
+      "url": "https://api.bargainwale.com",
+      "variables": {}
+    },
+    {
+      "url": "https://clerk.bargainwale.com/v1/client",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/api\n/{orgId}/warehouse": {
+      "get": {
+        "tags": [
+          "WAREHOUSE"
+        ],
+        "summary": "ALL WAREHOUSES",
+        "description": "Fetching all the warehouses enrolled with that specific organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLWAREHOUSES",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n}/{orgId}/warehouse/filter": {
+      "get": {
+        "tags": [
+          "WAREHOUSE"
+        ],
+        "summary": "FILTER WAREHOUSE",
+        "description": "Get warehouse using filters on it on the basis of factors including **name** ,**state** ,**city** & **orgId**. (filteration can be done on the basis of groups and individuals)",
+        "operationId": "FILTERWAREHOUSE",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_name"
+              ]
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_state"
+              ]
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_city/:warehouseId"
+              ]
+            }
+          },
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/warehouse/{warehouseId}": {
+      "get": {
+        "tags": [
+          "WAREHOUSE"
+        ],
+        "summary": "FILTER BY WAREHOUSE ID",
+        "description": "Select the warehouse (specify warehouse identity element **(id)** to get the warehouse entry details.",
+        "operationId": "FILTERBYWAREHOUSEID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_warehouse_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/warehouse": {
+      "post": {
+        "tags": [
+          "WAREHOUSE"
+        ],
+        "summary": "CREATE WAREHOUSE",
+        "description": "Create a new warehouse in organization specify the key-values which has been asked including : **name**, **state, city**, **manager**, **manager email address**",
+        "operationId": "CREATEWAREHOUSE",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATEWAREHOUSEREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "name": "enter_warehouse_name",
+                        "location": {
+                          "state": "enter_state",
+                          "city": "enter_city_name"
+                        },
+                        "organization": "specify_organization_name",
+                        "warehouseManager": {
+                          "name": "enter_manager_name",
+                          "email": "manager@example.com"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "name": "enter_warehouse_name",
+                "location": {
+                  "state": "enter_state",
+                  "city": "enter_city_name"
+                },
+                "organization": "specify_organization_name",
+                "warehouseManager": {
+                  "name": "enter_manager_name",
+                  "email": "manager@example.com"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/warehouse/{warehouseId}": {
+      "put": {
+        "tags": [
+          "WAREHOUSE"
+        ],
+        "summary": "UPDATE WAREHOUSE",
+        "description": "Use to update the existing warehouses listed under a specific organization details which could be edited : **name**, **state, city**, **manager**, **manager email address**",
+        "operationId": "UPDATEWAREHOUSE",
+        "parameters": [
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_warehouse_id"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UPDATEWAREHOUSEREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "name": "enter_warehouse_name",
+                        "location": {
+                          "state": "enter_state",
+                          "city": "enter_city_name"
+                        },
+                        "organization": "specify_organization_name",
+                        "warehouseManager": {
+                          "name": "enter_manager_name",
+                          "email": "manager@example.com"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "name": "enter_warehouse_name",
+                "location": {
+                  "state": "enter_state",
+                  "city": "enter_city_name"
+                },
+                "organization": "specify_organization_name",
+                "warehouseManager": {
+                  "name": "enter_manager_name",
+                  "email": "manager@example.com"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "WAREHOUSE"
+        ],
+        "summary": "DELETE A WAREHOUSE",
+        "description": "This is a **CRITICAL API** not available over the dashboard but is working in the backend processes for internal team.",
+        "operationId": "DELETEAWAREHOUSE",
+        "parameters": [
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specifify_warehouse_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/order": {
+      "get": {
+        "tags": [
+          "ORDER"
+        ],
+        "summary": "ALL ORDERS",
+        "description": "Fetching all the orders created under an specified organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLORDERS",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/order/{orderId}": {
+      "get": {
+        "tags": [
+          "ORDER"
+        ],
+        "summary": "FILTER BY ORDER ID",
+        "description": "Specify the **Organization Id & Order Id** (Remeber the organization Id will be the Database Identity provided and Order Id u have to specify for any created past Order)",
+        "operationId": "FILTERBYORDERID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_order_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/order": {
+      "post": {
+        "tags": [
+          "ORDER"
+        ],
+        "summary": "CREATE ORDER",
+        "description": "Create a new order in organization specify the key-values which has been asked including :\n\n- **Company Bargain Date :**\n    \n    - Date at which a bargain **(**_**'**__**sauda**__**'**_ in hindi) is writing down between the trader company and the manufacturer\n        \n- **Companany Bargain Number :**\n    \n    - A unique set of numbers and alphabets (_**'CQ1005'**_ example) is provided by the manufacturer to the trader on the behalf of that perticular order which is getting created so that both the individual organization will have a reference id proof.\n        \n- **Items :**\n    \n    - Here comes a list of Items which will be getting enrolled or basically getting bargained under this specific Order Id. There will be few keywords and values which'll be included for each item in this :\n        \n        - **Item Id :** This will be selected on selecting the item.\n            \n        - **Quantity :** Specify the number of items you want in the order.\n            \n        - **Pickup :** Specify the type of order it'll be. There will 3 main categories of order pickup type :  \n            (Remeber pickup means what type of pickup the _**TRADER (Self)**_ -> is looking for _(read more to understand)_ -> _**MANUFACTURER (Item Owner)**_\n            \n            - **Rack** :\n                \n                - Means the manufacturer will be transporting the order value through _rail/ship_ etc _(to a specific location it could be same city or different location) and the_ _**Trader (self)**_ _will be able to take the order.\n                    \n                    \\*(Cost of per item will be set accordingly)__\\*_\n                    \n            - **Depot** :\n                \n                - Means the manufacture will be transporting the order value to the Trader (Self) depot location.\n                    \n                    _\\*__**(Cost of per item will be set accordingly)**__\\*_\n                    \n            - **Plant** :\n                \n                - Means the trader will be taking the order by self from the manufacturing unit.\n                    \n                    _**(Cost of per item will be set accordingly)**_\n                    \n        - **Base Rate :**\n            \n            - This is the rate (value) at which the TRADER _(Self)_ is ordering the item.\n                \n        - **Tax Paid Amount :**\n            \n            - This is the base amount calculated on the basis of :\n                \n                - **Quantity x Base Rate** _(No any other tax or something is included yet)._\n                    \n        - **Cont Number :**\n            \n            - This is a reference number (could be a contact number or reference to the person or representer to whom we can contact for the perticular order details)\n                \n        - **GST :**\n            \n            - **CGST :** _(Central Goods and Services Tax)_\n                \n            - **SGST :** _(State Goods and Services)_\n                \n            - **IGST :** _(Integrated Goods and Services Tax)_\n                \n            - **Taxable Amount :** _(_\n                \n                - _Will be calculated on the basis of the Tax Paid Amount and the GST %)_\n                    \n        - **Total Amount :**\n            \n            - _This will be the_ _**total amount**_ _calculated where there will be a sum of all the listed items taxable amount._\n                \n        - **Inco :** _**(**__**International Commercial Terms**__**)**_\n            \n            - This is the Gloabal Terms on the basis of which the Trades and Shipping get categorised there are 2 type of Inco available :\n                \n                - EXW : (_Ex Works)_\n                    \n                    - The _**Manufacturer**_ is responsible for making the goods available at a predetermined location, such as their facility. The _**Trader (Self)**_ is responsible for all transportation costs, including freight charges, insurance, customs duties, and export/import procedures.\n                        \n                - FOB : _(Free On Board)_\n                    \n                    - The _**Manufacturer**_ is responsible for transporting the goods to a named port of shipment, and for covering the costs and risks associated with loading the goods onto the vessel. The _**Trader (Self)**_ is responsible for all transportation costs after the goods have been loaded.\n                        \n        - **Bill Type :** On which Inventory the Bill or the Order will get generated_  \n            (By default it'll be Virtual Type)_\n            \n        - **Status :**\n            \n            - This showcases about the current state of the Order **:**\n                \n                - CREATED\n                    \n                - PARTIALLY PURCHASED\n                    \n                - BILLED\n                    \n        - **Organization :**\n            \n            - This is the **Current User (TRADER)** Organization Identity\n                \n        - **Warehouse :**\n            \n            - This is the **Warehouse Identity** in which the Order will be booked and shipped.\n                \n        - **Manufacturer :**\n            \n            - This is the **Manufacturer Identity** to whom the Order is getting requested.\n                \n        - **Transport Category :**\n            \n            - _(Same as Pickup : Depot, Plat, Rack)_\n                \n        - **Payment Days :**\n            \n            - Date which is the deadline before that the payment basically the permanent bill should be issued to the manufacturer by the trader.\n                \n        - **Reminder Days :**\n            \n            - Day's before the Deadline to send a reminder to the Trader to issue a permanent bill to the manufacturer.\n                \n            - _(By Default : 7, 3, 1 stands for : 7th Day before the Deadline etc..)_\n                \n        - **Description :**\n            \n            - Remark _(Optional)_",
+        "operationId": "CREATEORDER",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATEORDERREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "companyBargainDate": "2023-09-25T00:00:00Z",
+                        "companyBargainNo": "BARGAIN12345",
+                        "items": [
+                          {
+                            "itemId": "66d82817fa547defd0c85888",
+                            "quantity": 100,
+                            "pickup": "plant",
+                            "baseRate": 50.0,
+                            "taxpaidAmount": 1000.0,
+                            "contNumber": 1,
+                            "gst": 18,
+                            "cgst": 9,
+                            "sgst": 9,
+                            "igst": 0,
+                            "taxableAmount": 45000
+                          },
+                          {
+                            "itemId": "67092f7c993475e94fc152aa",
+                            "quantity": 500,
+                            "pickup": "plant",
+                            "baseRate": 50.0,
+                            "taxpaidAmount": 1000.0,
+                            "contNumber": 1,
+                            "gst": 18,
+                            "cgst": 9,
+                            "sgst": 9,
+                            "igst": 0,
+                            "taxableAmount": 45000
+                          }
+                        ],
+                        "totalAmount": 1000.0,
+                        "inco": "EXW",
+                        "billType": "Virtual Billed",
+                        "status": "created",
+                        "organization": "64f0216c4b5b4c5a84b9d564",
+                        "warehouse": "67092f2a993475e94fc15294",
+                        "manufacturer": "64d476b697522cdfbfe0eeb2",
+                        "transportCatigory": "depot",
+                        "paymentDays": 21,
+                        "reminderDays": [
+                          7,
+                          3,
+                          1
+                        ],
+                        "description": "Order for new stock"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "companyBargainDate": "2023-09-25T00:00:00Z",
+                "companyBargainNo": "BARGAIN12345",
+                "items": [
+                  {
+                    "itemId": "66d82817fa547defd0c85888",
+                    "quantity": 100,
+                    "pickup": "plant",
+                    "baseRate": 50.0,
+                    "taxpaidAmount": 1000.0,
+                    "contNumber": 1,
+                    "gst": 18,
+                    "cgst": 9,
+                    "sgst": 9,
+                    "igst": 0,
+                    "taxableAmount": 45000
+                  },
+                  {
+                    "itemId": "67092f7c993475e94fc152aa",
+                    "quantity": 500,
+                    "pickup": "plant",
+                    "baseRate": 50.0,
+                    "taxpaidAmount": 1000.0,
+                    "contNumber": 1,
+                    "gst": 18,
+                    "cgst": 9,
+                    "sgst": 9,
+                    "igst": 0,
+                    "taxableAmount": 45000
+                  }
+                ],
+                "totalAmount": 1000.0,
+                "inco": "EXW",
+                "billType": "Virtual Billed",
+                "status": "created",
+                "organization": "64f0216c4b5b4c5a84b9d564",
+                "warehouse": "67092f2a993475e94fc15294",
+                "manufacturer": "64d476b697522cdfbfe0eeb2",
+                "transportCatigory": "depot",
+                "paymentDays": 21,
+                "reminderDays": [
+                  7,
+                  3,
+                  1
+                ],
+                "description": "Order for new stock"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/order/{orderId}": {
+      "put": {
+        "tags": [
+          "ORDER"
+        ],
+        "summary": "UPDATE ORDER",
+        "description": "Use to update the existing order details which could be edited :  \n**quanity**",
+        "operationId": "UPDATEORDER",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_order_id"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UPDATEORDERREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "items": [
+                          {
+                            "item": "enter_item_id",
+                            "quantity": 90
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "items": [
+                  {
+                    "item": "enter_item_id",
+                    "quantity": 90
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "ORDER"
+        ],
+        "summary": "DELETE ORDER",
+        "description": "This is a **CONDITIONAL** it allows the order deletion only when the conditions are satisfied :\n\n- Order status should be **CREATED**\n    \n- No operatons should took place on that specific order\n    \n- No further new order should be created over it.",
+        "operationId": "DELETEORDER",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_order_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/booking": {
+      "get": {
+        "tags": [
+          "BOOKING"
+        ],
+        "summary": "ALL BOOKINGS",
+        "description": "Fetching all the bookings created under an specified organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLBOOKINGS",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/booking/{bookingId}": {
+      "get": {
+        "tags": [
+          "BOOKING"
+        ],
+        "summary": "FILTER BY BOOKING ID",
+        "description": "Specify the **Organization Id & Booking Id** (Remeber the organization Id will be the Database Identity provided and Booking Id u have to specify for any created past Booking)",
+        "operationId": "FILTERBYBOOKINGID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "bookingId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_booking_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/booking/buyer/{buyerId}": {
+      "get": {
+        "tags": [
+          "BOOKING"
+        ],
+        "summary": "BOOKING BY BUYER ID",
+        "description": "Specify the **Buyer Id** to fetch the booking details of that buyer.\n\n(Buyer Id will be received at the time of Buyer Creation).",
+        "operationId": "BOOKINGBYBUYERID",
+        "parameters": [
+          {
+            "name": "buyerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_buyer_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/booking": {
+      "post": {
+        "tags": [
+          "BOOKING"
+        ],
+        "summary": "CREATE BOOKING",
+        "description": "Create a new booking in organization specify the key-values which has been asked including :\n\n- **Bargain Date :**\n    \n    - Date at which a bargain **(**_**'sauda'**_ in hindi) is writing down between the trader company and the buyer\n        \n- **Bargain Number :**\n    \n    - A unique set of numbers and alphabets (_**'BUY1005'**_ example) is provided by the buyer to the trader on the behalf of that perticular order which is getting created so that both the individual organization will have a reference id proof.\n        \n- **Items :**\n    \n    - Here comes a list of Items which will be getting enrolled or basically getting bargained under this specific Booking Id. There will be few keywords and values which'll be included for each item in this :\n        \n        - **Item Id :** This will be selected on selecting the item.\n            \n        - **Quantity :** Specify the number of items buyer needs.\n            \n        - **Pickup :** Specify the type of booking it'll be. There will 3 main categories of booking pickup type :  \n            (Remeber pickup means what type of pickup the _**BUYER**_ -> is looking for _(read more to understand)_ -> _**TRADER (Self)**_\n            \n            - **Rack** :\n                \n                - Means the T**rader(Self)** will be transporting the booking value through _rail/ship_ etc _(to a specific location it could be same city or different location) and the_ _**Buyer**_ will be able to take the order.**\n                    \n                    (Cost of per item will be set accordingly)**\n                    \n            - **Depot** :\n                \n                - Means the **Trader (Self)** will be transporting the booking value to the B**uyer** depot location.\n                    \n                    **(**_\\*__Cost of per item will be set accordingly)__\\*_\n                    \n            - **Plant** :\n                \n                - Means the buyer will be taking the order by self from the trader warehouse/specified location.\n                    \n                    _\\*__(Cost of per item will be set accordingly)__\\*_\n                    \n        - **Base Rate :**\n            \n            - This is a dynamic rate which'll keep on updating by the **Trader (Self)** to according to the market values it'll be dependent on :\n                \n                - Warehouse\n                    \n                - Item\n                    \n                - Pickup\n                    \n        - **Discount :**\n            \n            - This will be a percentage based like if any buyer requrested for a discount a approval condition will get triggered.:\n                \n                - _If Verified by the_ _**Trader (Self)**_ _\\-> Admin then only the booking will be placed._\n                    \n        - **Tax Paid Amount :**\n            \n            - This is the base amount calculated on the basis of :\n                \n                - **Quantity x Base Rate** _(No any other tax or something is included yet)._\n                    \n        - **Cont Number :**\n            \n            - This is a reference number (could be a contact number or reference to the person or representer to whom we can contact for the perticular order details)\n                \n        - **GST :**\n            \n            - **CGST :** _(Central Goods and Services Tax)_\n                \n            - **SGST :** _(State Goods and Services)_\n                \n            - **IGST :** _(Integrated Goods and Services Tax)_\n                \n            - **Taxable Amount :** _(_\n                \n                - _Will be calculated on the basis of the Tax Paid Amount and the GST %)_\n                    \n        - **Total Amount :**\n            \n            - _This will be the_ _**total amount**_ _calculated where there will be a sum of all the listed items taxable amount._\n                \n        - **Delivery :**\n            \n            - This is the Gloabal Terms on the basis of which the Trades and Shipping get categorised there are 2 type of Inco available :\n                \n                - Delivery :\n                    \n                    - The **Trader (Self)** is responsible for making the goods available at a predetermined location, such as their facility. The **Buyer** is responsible for all transportation costs, including freight charges, insurance, customs duties, and export/import procedures.\n                        \n                    - There could be a different Delivery Address it could be :\n                        \n                        - Default buyer address from the masters or\n                            \n                        - Could be a custom delivery address named as : \"**Consignee\"**\n                            \n                - Pickup :\n                    \n                    - The **Buyer** is responsible for all transportation costs after the goods have been loaded from the **Trader (Self)** specified port.\n                        \n        - **Bill Type :** On which Inventory the Bill or the Order will get generated_  \n            (By default it'll be Virtual Type)_\n            \n        - **Status :**\n            \n            - This showcases about the current state of the Order **:**\n                \n                - CREATED\n                    \n                - PARTIALLY PURCHASED\n                    \n                - BILLED\n                    \n        - **Organization :**\n            \n            - This is the **Current User (TRADER)** Organization Identity\n                \n        - **Warehouse :**\n            \n            - This is the **Warehouse Identity** in which the Order will be booked and shipped.\n                \n        - **Buyer :**\n            \n            - This is the **Buyer Identity** for whom the Booking is getting placed.\n                \n        - **Payment Days :**\n            \n            - Date which is the deadline before that the payment basically the permanent bill should be issued to the manufacturer by the trader.\n                \n        - **Reminder Days :**\n            \n            - Day's before the Deadline to send a reminder to the Trader to issue a permanent bill to the manufacturer.\n                \n            - _(By Default : 7, 3, 1 stands for : 7th Day before the Deadline etc..)_\n                \n        - **Description :**\n            \n            - Remark _(Optional)_",
+        "operationId": "CREATEBOOKING",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATEBOOKINGREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "BargainDate": "2024-09-25T00:00:00.000Z",
+                        "BargainNo": "BRG123456",
+                        "items": [
+                          {
+                            "item": "66d82817fa547defd0c85888",
+                            "quantity": 200,
+                            "discount": 0,
+                            "pickup": "plant",
+                            "taxpaidAmount": 1500,
+                            "contNumber": 9876543210,
+                            "basePrice": 110,
+                            "gst": 18,
+                            "cgst": 9,
+                            "sgst": 9,
+                            "igst": 0,
+                            "taxableAmount": 45000
+                          },
+                          {
+                            "item": "67092f7c993475e94fc152aa",
+                            "itemPrice": "66f6b4fdf2c1929a3670189e",
+                            "quantity": 300,
+                            "discount": 0,
+                            "pickup": "plant",
+                            "taxpaidAmount": 700,
+                            "contNumber": 9876543211,
+                            "basePrice": 105
+                          }
+                        ],
+                        "validity": 21,
+                        "inco": "EXW",
+                        "deliveryOption": "Delivery",
+                        "organization": "64d22f5a8b3b9f47a3b0e7f1",
+                        "warehouse": "671d0e84b912e6dfd3b234b1",
+                        "buyer": "670ebe93ee836d79104d34ae",
+                        "deliveryAddress": {
+                          "addressLine1": "123 Street Name",
+                          "addressLine2": "Suite 456",
+                          "city": "Mumbai",
+                          "state": "Maharashtra",
+                          "pinCode": "400001"
+                        },
+                        "status": "created",
+                        "reminderDays": [
+                          7,
+                          3,
+                          1
+                        ],
+                        "description": "This is a booking for the bulk order of items.",
+                        "createdAt": "2024-09-25T10:00:00.000Z",
+                        "updatedAt": "2024-09-25T10:00:00.000Z"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "BargainDate": "2024-09-25T00:00:00.000Z",
+                "BargainNo": "BRG123456",
+                "items": [
+                  {
+                    "item": "66d82817fa547defd0c85888",
+                    "quantity": 200,
+                    "discount": 0,
+                    "pickup": "plant",
+                    "taxpaidAmount": 1500,
+                    "contNumber": 9876543210,
+                    "basePrice": 110,
+                    "gst": 18,
+                    "cgst": 9,
+                    "sgst": 9,
+                    "igst": 0,
+                    "taxableAmount": 45000
+                  },
+                  {
+                    "item": "67092f7c993475e94fc152aa",
+                    "itemPrice": "66f6b4fdf2c1929a3670189e",
+                    "quantity": 300,
+                    "discount": 0,
+                    "pickup": "plant",
+                    "taxpaidAmount": 700,
+                    "contNumber": 9876543211,
+                    "basePrice": 105
+                  }
+                ],
+                "validity": 21,
+                "inco": "EXW",
+                "deliveryOption": "Delivery",
+                "organization": "64d22f5a8b3b9f47a3b0e7f1",
+                "warehouse": "671d0e84b912e6dfd3b234b1",
+                "buyer": "670ebe93ee836d79104d34ae",
+                "deliveryAddress": {
+                  "addressLine1": "123 Street Name",
+                  "addressLine2": "Suite 456",
+                  "city": "Mumbai",
+                  "state": "Maharashtra",
+                  "pinCode": "400001"
+                },
+                "status": "created",
+                "reminderDays": [
+                  7,
+                  3,
+                  1
+                ],
+                "description": "This is a booking for the bulk order of items.",
+                "createdAt": "2024-09-25T10:00:00.000Z",
+                "updatedAt": "2024-09-25T10:00:00.000Z"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/booking/{bookingId}": {
+      "put": {
+        "tags": [
+          "BOOKING"
+        ],
+        "summary": "UPDATE BOOKING BY ID",
+        "description": "Use to update the existing booking details which could be edited :  \n**quanity etc.**",
+        "operationId": "UPDATEBOOKINGBYID",
+        "parameters": [
+          {
+            "name": "bookingId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_booking_id"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UPDATEBOOKINGBYIDREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "BargainDate": "2024-09-30T00:00:00.000Z",
+                        "BargainNo": "NEW12345",
+                        "items": [
+                          {
+                            "item": "60d5f9f8d5f4b34c2d1a0e89",
+                            "quantity": 50
+                          }
+                        ],
+                        "validity": 30,
+                        "deliveryOption": "Delivery",
+                        "warehouse": "60d5f9f8d5f4b34c2d1a0e90",
+                        "organization": "60d5f9f8d5f4b34c2d1a0e91",
+                        "buyer": "60d5f9f8d5f4b34c2d1a0e92",
+                        "deliveryAddress": {
+                          "addressLine1": "123 New Street",
+                          "addressLine2": "Apt 4B",
+                          "city": "New City",
+                          "state": "NC",
+                          "pinCode": "12345"
+                        },
+                        "virtualInventoryQuantities": [
+                          {
+                            "itemName": "Item A",
+                            "quantity": 10
+                          }
+                        ],
+                        "billedInventoryQuantities": [
+                          {
+                            "itemName": "Item B",
+                            "quantity": 40
+                          }
+                        ],
+                        "status": "payment pending",
+                        "reminderDays": [
+                          5,
+                          2,
+                          1
+                        ],
+                        "description": "Updated description for the booking"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "BargainDate": "2024-09-30T00:00:00.000Z",
+                "BargainNo": "NEW12345",
+                "items": [
+                  {
+                    "item": "60d5f9f8d5f4b34c2d1a0e89",
+                    "quantity": 50
+                  }
+                ],
+                "validity": 30,
+                "deliveryOption": "Delivery",
+                "warehouse": "60d5f9f8d5f4b34c2d1a0e90",
+                "organization": "60d5f9f8d5f4b34c2d1a0e91",
+                "buyer": "60d5f9f8d5f4b34c2d1a0e92",
+                "deliveryAddress": {
+                  "addressLine1": "123 New Street",
+                  "addressLine2": "Apt 4B",
+                  "city": "New City",
+                  "state": "NC",
+                  "pinCode": "12345"
+                },
+                "virtualInventoryQuantities": [
+                  {
+                    "itemName": "Item A",
+                    "quantity": 10
+                  }
+                ],
+                "billedInventoryQuantities": [
+                  {
+                    "itemName": "Item B",
+                    "quantity": 40
+                  }
+                ],
+                "status": "payment pending",
+                "reminderDays": [
+                  5,
+                  2,
+                  1
+                ],
+                "description": "Updated description for the booking"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "BOOKING"
+        ],
+        "summary": "DELETE BOOKING",
+        "description": "This is a **CONDITIONAL** it allows the booking deletion only when the conditions are satisfied :\n\n- Booking status should be **CREATED**\n    \n- No operatons should took place on that specific order\n    \n- No further new booking should be created over it.",
+        "operationId": "DELETEBOOKING",
+        "parameters": [
+          {
+            "name": "bookingId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_booking_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/booking/updateDiscount/{bookingId}": {
+      "put": {
+        "tags": [
+          "BOOKING"
+        ],
+        "summary": "BOOKING FOR DISCOUNT",
+        "description": "Provide the discount percentage (%) to the booking creation to provide a On - Demand Discount to the Buyer on the Base Value.",
+        "operationId": "BOOKINGFORDISCOUNT",
+        "parameters": [
+          {
+            "name": "bookingId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_booking_id"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/BOOKINGFORDISCOUNTREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "items": [
+                          {
+                            "item": "66d82817fa547defd0c85888",
+                            "discount": 10
+                          },
+                          {
+                            "item": "67092f7c993475e94fc152aa",
+                            "discount": 0
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "items": [
+                  {
+                    "item": "66d82817fa547defd0c85888",
+                    "discount": 10
+                  },
+                  {
+                    "item": "67092f7c993475e94fc152aa",
+                    "discount": 0
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/items": {
+      "get": {
+        "tags": [
+          "ITEM"
+        ],
+        "summary": "ALL ITEMS",
+        "description": "Fetching all the items enrolled under an specified organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLITEMS",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/items/{itemId}": {
+      "get": {
+        "tags": [
+          "ITEM"
+        ],
+        "summary": "FILTER BY ITEM ID",
+        "description": "Specify the **Organization Id & Item Id** (Remeber the organization Id will be the Database Identity provided and Item Id u have to specify for any created past Item)",
+        "operationId": "FILTERBYITEMID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_item_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/items/warehouse/{warehouseId}": {
+      "get": {
+        "tags": [
+          "ITEM"
+        ],
+        "summary": "ITEM BY WAREHOUSE ID",
+        "description": "Specify the **Item Id** to fetch the items details of that item.\n\n(Item Id will be received at the time of Item Creation).",
+        "operationId": "ITEMBYWAREHOUSEID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_warehouse_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/items": {
+      "post": {
+        "tags": [
+          "ITEM"
+        ],
+        "summary": "CREATE ITEM",
+        "description": "Create a new item in organization specify the key-values which has been asked including : **name**, **flavor, hsncode**, **material**, **net weight, gross weight, gst, packaging, pack size**",
+        "operationId": "CREATEITEM",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATEITEMREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "flavor": "Vanaspati",
+                        "material": 180008631,
+                        "materialdescription": "RUCHI GOLD PALMOLEIN 870 G PP 1X10- VALUE PACK",
+                        "netweight": 450,
+                        "grossweight": 480,
+                        "gst": 5,
+                        "packaging": "box",
+                        "packsize": "Consumer Pack",
+                        "staticPrice": 150.0,
+                        "warehouses": [
+                          "66d4b28d94374eea53e1cff3",
+                          "64e7f6b8fc13ae1a6f00000c"
+                        ],
+                        "organization": "64e7f6b8fc13ae1a6f00000d"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "flavor": "Vanaspati",
+                "material": 180008631,
+                "materialdescription": "RUCHI GOLD PALMOLEIN 870 G PP 1X10- VALUE PACK",
+                "netweight": 450,
+                "grossweight": 480,
+                "gst": 5,
+                "packaging": "box",
+                "packsize": "Consumer Pack",
+                "staticPrice": 150.0,
+                "warehouses": [
+                  "66d4b28d94374eea53e1cff3",
+                  "64e7f6b8fc13ae1a6f00000c"
+                ],
+                "organization": "64e7f6b8fc13ae1a6f00000d"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/items/{itemId}": {
+      "put": {
+        "tags": [
+          "ITEM"
+        ],
+        "summary": "UPDATE ITEM BY ID",
+        "description": "Update item in organization specify the key-values which has been asked including : **name**, **flavor, hsncode**, **material**, **net weight, gross weight, gst, packaging, pack size**",
+        "operationId": "UPDATEITEMBYID",
+        "parameters": [
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_item_id"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UPDATEITEMBYIDREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "flavor": "basmati",
+                        "material": 180008631,
+                        "materialdescription": "RUCHI GOLD PALMOLEIN 870 G PP 1X10- VALUE PACK",
+                        "netweight": 450,
+                        "grossweight": 480,
+                        "gst": 5,
+                        "packaging": "box",
+                        "packsize": "Bulk Pack",
+                        "staticPrice": 150.0
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "flavor": "basmati",
+                "material": 180008631,
+                "materialdescription": "RUCHI GOLD PALMOLEIN 870 G PP 1X10- VALUE PACK",
+                "netweight": 450,
+                "grossweight": 480,
+                "gst": 5,
+                "packaging": "box",
+                "packsize": "Bulk Pack",
+                "staticPrice": 150.0
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "ITEM"
+        ],
+        "summary": "DELETE ITEM",
+        "description": "This is a **CRITICAL API** not available over the dashboard but is working in the backend processes for internal team.",
+        "operationId": "DELETEITEM",
+        "parameters": [
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_item_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/buyers": {
+      "get": {
+        "tags": [
+          "BUYER"
+        ],
+        "summary": "ALL BUYERS",
+        "description": "Fetching all the buyers enrolled with that specific organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLBUYERS",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/buyers/{buyerId}": {
+      "get": {
+        "tags": [
+          "BUYER"
+        ],
+        "summary": "FILTER BY BUYER ID",
+        "description": "Select the buyer (specify buyer identity element **(id)** to get the buyer entry details.",
+        "operationId": "FILTERBYBUYERID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "buyerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_buyer_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/buyers": {
+      "post": {
+        "tags": [
+          "BUYER"
+        ],
+        "summary": "CREATE BUYER",
+        "description": "Enroll a new buyer in organization specify the key-values which has been asked including : **name**, **company name, address line 1**, **address line 2 (optional)**, **city, state, pincode, phone number, email address, gst number, google maps.**",
+        "operationId": "CREATEBUYER",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATEBUYERREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "buyer": "John Doe",
+                        "buyerCompany": "Doe Industries",
+                        "buyerdeliveryAddress": {
+                          "addressLine1": "123 Main Street",
+                          "addressLine2": "Suite 400",
+                          "city": "New York",
+                          "state": "NY",
+                          "pinCode": "10001"
+                        },
+                        "buyerContact": "+1-555-1234",
+                        "buyerEmail": "johndoe@example.com",
+                        "buyerGstno": "22AAAAA0000A1Z5",
+                        "buyerGooglemaps": "https://maps.google.com/?q=40.7128,-74.0060"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "buyer": "John Doe",
+                "buyerCompany": "Doe Industries",
+                "buyerdeliveryAddress": {
+                  "addressLine1": "123 Main Street",
+                  "addressLine2": "Suite 400",
+                  "city": "New York",
+                  "state": "NY",
+                  "pinCode": "10001"
+                },
+                "buyerContact": "+1-555-1234",
+                "buyerEmail": "johndoe@example.com",
+                "buyerGstno": "22AAAAA0000A1Z5",
+                "buyerGooglemaps": "https://maps.google.com/?q=40.7128,-74.0060"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/buyers/{buyerId}": {
+      "put": {
+        "tags": [
+          "BUYER"
+        ],
+        "summary": "UPDATE BUYER BY ID",
+        "description": "Update buyer in organization specify the key-values which has been asked including : **name**, **company name, address line 1**, **address line 2 (optional)**, **city, state, pincode, phone number, email address, gst number, google maps.**",
+        "operationId": "UPDATEBUYERBYID",
+        "parameters": [
+          {
+            "name": "buyerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_buyer_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "BUYER"
+        ],
+        "summary": "DELETE BUYER",
+        "description": "This is a **CONDITIONAL** it allows the buyer deletion only when the conditions are satisfied :\n\n- Buyer shouldn't be enrolled in any operation.\n    \n- No operations should took place by specific buyer.",
+        "operationId": "DELETEBUYER",
+        "parameters": [
+          {
+            "name": "buyerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_buyer_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/transports": {
+      "get": {
+        "tags": [
+          "TRANSPORT"
+        ],
+        "summary": "ALL TRANSPORTS",
+        "description": "Fetching all the transports enrolled with that specific organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLTRANSPORTS",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/transports/{transportId}": {
+      "get": {
+        "tags": [
+          "TRANSPORT"
+        ],
+        "summary": "FILTER BY TRANSPORT ID",
+        "description": "Select the transport (specify transport identity element **(id)** to get the transport entry details.",
+        "operationId": "FILTERBYTRANSPORTID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "transportId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_transport_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/transports": {
+      "post": {
+        "tags": [
+          "TRANSPORT"
+        ],
+        "summary": "CREATE TRANSPORT",
+        "description": "Create a new transporter in organization specify the key-values which has been asked including : **name, transport type, phone number, agency**",
+        "operationId": "CREATETRANSPORT",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATETRANSPORTREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "transport": "ABC Logistics",
+                        "transportType": "Truck",
+                        "transportContact": "9876543210",
+                        "transportAgency": "XYZ Transport Agency"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "transport": "ABC Logistics",
+                "transportType": "Truck",
+                "transportContact": "9876543210",
+                "transportAgency": "XYZ Transport Agency"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/transports/{transportId}": {
+      "put": {
+        "tags": [
+          "TRANSPORT"
+        ],
+        "summary": "UPDATE TRANSPORT BY ID",
+        "description": "Update the transporter in organization specify the key-values which has been asked including : **name, transport type, phone number, agency**",
+        "operationId": "UPDATETRANSPORTBYID",
+        "parameters": [
+          {
+            "name": "transportId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_transport_id"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UPDATETRANSPORTBYIDREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "transport": "DEF Logistics",
+                        "transportType": "Container",
+                        "transportContact": "1234567890",
+                        "transportAgency": "DEF Transport Agency"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "transport": "DEF Logistics",
+                "transportType": "Container",
+                "transportContact": "1234567890",
+                "transportAgency": "DEF Transport Agency"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "TRANSPORT"
+        ],
+        "summary": "DELETE TRANSPORT",
+        "description": "This is a **CONDITIONAL** it allows the transporter deletion only when the conditions are satisfied :\n\n- Transporter shouldn't be enrolled in any operation.\n    \n- No operations should took place by specific transporter.",
+        "operationId": "DELETETRANSPORT",
+        "parameters": [
+          {
+            "name": "transportId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_transporter_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/manufacturers": {
+      "get": {
+        "tags": [
+          "MANUFACTURER"
+        ],
+        "summary": "ALL MANUFACTURERS",
+        "description": "Fetching all the manufacturers enrolled with that specific organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLMANUFACTURERS",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/manufacturers/{manufacturerId}": {
+      "get": {
+        "tags": [
+          "MANUFACTURER"
+        ],
+        "summary": "FILTER BY MANUFACTURER BY ID",
+        "description": "Select the manufacturer (specify manufacturer identity element **(id)** to get the manufacturer entry details.",
+        "operationId": "FILTERBYMANUFACTURERBYID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "manufacturerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_manufacturer_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/manufacturers": {
+      "post": {
+        "tags": [
+          "MANUFACTURER"
+        ],
+        "summary": "CREATE MANUFACTURER",
+        "description": "Enroll a new manufacturer in organization specify the key-values which has been asked including : **name**, **company name, address line 1**, **address line 2 (optional)**, **city, state, pincode, phone number, email address, gst number, google maps.**",
+        "operationId": "CREATEMANUFACTURER",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATEMANUFACTURERREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "manufacturer": "ABC Manufacturing Co.",
+                        "manufacturerCompany": "ABC Industries",
+                        "manufacturerdeliveryAddress": {
+                          "addressLine1": "123 Main St",
+                          "addressLine2": "Suite 400",
+                          "city": "Springfield",
+                          "state": "IL",
+                          "pinCode": "62701"
+                        },
+                        "manufacturerContact": "123-456-7890",
+                        "manufacturerEmail": "contact@abcindustries.com",
+                        "manufacturerGstno": "29ABCDE1234F1Z5",
+                        "manufacturerGooglemaps": "https://maps.google.com/?q=123+Main+St,+Springfield,+IL"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "manufacturer": "ABC Manufacturing Co.",
+                "manufacturerCompany": "ABC Industries",
+                "manufacturerdeliveryAddress": {
+                  "addressLine1": "123 Main St",
+                  "addressLine2": "Suite 400",
+                  "city": "Springfield",
+                  "state": "IL",
+                  "pinCode": "62701"
+                },
+                "manufacturerContact": "123-456-7890",
+                "manufacturerEmail": "contact@abcindustries.com",
+                "manufacturerGstno": "29ABCDE1234F1Z5",
+                "manufacturerGooglemaps": "https://maps.google.com/?q=123+Main+St,+Springfield,+IL"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/manufacturers/{manufacturerId}": {
+      "put": {
+        "tags": [
+          "MANUFACTURER"
+        ],
+        "summary": "UPDATE MANUFACTURER BY ID",
+        "description": "Update the manufacturer in organization specify the key-values which has been asked including : **name, transport type, phone number, agency**",
+        "operationId": "UPDATEMANUFACTURERBYID",
+        "parameters": [
+          {
+            "name": "manufacturerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_manufacturer_id"
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UPDATEMANUFACTURERBYIDREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "manufacturer": "XYZ Manufacturing Co.",
+                        "manufacturerCompany": "XYZ Industries",
+                        "manufacturerdeliveryAddress": {
+                          "addressLine1": "456 Elm St",
+                          "addressLine2": "Apt 5B",
+                          "city": "Metropolis",
+                          "state": "NY",
+                          "pinCode": "10001"
+                        },
+                        "manufacturerContact": "987-654-3210",
+                        "manufacturerEmail": "info@xyzindustries.com",
+                        "manufacturerGstno": "07ABCDE1234F2Z6",
+                        "manufacturerGooglemaps": "https://maps.google.com/?q=456+Elm+St,+Metropolis,+NY"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "manufacturer": "XYZ Manufacturing Co.",
+                "manufacturerCompany": "XYZ Industries",
+                "manufacturerdeliveryAddress": {
+                  "addressLine1": "456 Elm St",
+                  "addressLine2": "Apt 5B",
+                  "city": "Metropolis",
+                  "state": "NY",
+                  "pinCode": "10001"
+                },
+                "manufacturerContact": "987-654-3210",
+                "manufacturerEmail": "info@xyzindustries.com",
+                "manufacturerGstno": "07ABCDE1234F2Z6",
+                "manufacturerGooglemaps": "https://maps.google.com/?q=456+Elm+St,+Metropolis,+NY"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "MANUFACTURER"
+        ],
+        "summary": "DELETE MANUFACTURER",
+        "description": "This is a **CONDITIONAL** it allows the manufacturer deletion only when the conditions are satisfied :\n\n- Manufacturer shouldn't be enrolled in any operation.\n    \n- No operations should took place by specific manufacturer.",
+        "operationId": "DELETEMANUFACTURER",
+        "parameters": [
+          {
+            "name": "manufacturerId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_manufacturer_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/purchase": {
+      "get": {
+        "tags": [
+          "PURCHASE"
+        ],
+        "summary": "ALL PURCHASE",
+        "description": "Fetching all the purchase created under an specified organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLPURCHASE",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/purchase/{purchaseId}": {
+      "get": {
+        "tags": [
+          "PURCHASE"
+        ],
+        "summary": "FILTER BY PURCHASE ID",
+        "description": "Specify the **Organization Id & Purchase Id** (Remeber the organization Id will be the Database Identity provided and Purchase Id u have to specify for any created past Purchase)",
+        "operationId": "FILTERBYPURCHASEID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "purchaseId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_purchase_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/purchases-between-dates": {
+      "get": {
+        "tags": [
+          "PURCHASE"
+        ],
+        "summary": "FILTER PURCHASE BETWEEN DATES",
+        "description": "Specify the **Start Date** and **End Date** and in between the purchases created will be fetched in there.",
+        "operationId": "FILTERPURCHASEBETWEENDATES",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/purchase": {
+      "post": {
+        "tags": [
+          "PURCHASE"
+        ],
+        "summary": "CREATE PURCHASE",
+        "description": "Create a new purchase in organization specify the key-values which has been asked including :\n\n- **Invoice Date :**\n    \n    - Date at which a purchase **(**physically getting the ordered items) and the invoice of the purchase will be shared.\n        \n- **Invoice Number :**\n    \n    - A unique set of numbers and alphabets (_**'PU1035'**_ example) is entered in reference with the Purchase between the **manufacturer** and **trader (self)**\n        \n- **Warehouse :**\n    \n    - This is the **Warehouse Identity** in which the Purchase will shipped.\n        \n- **Transporter :**\n    \n    - This is the **Transporter Identity** by whom the Purchase is transported.\n        \n- **Purchase Status Descriptions**\n    \n    - **Ordered Quantity**: Represents the number of items requested when the purchase order was created. This value is fixed and does not change.\n        \n    - **Available Quantity**: Tracks the number of items received so far. It starts at **0** and increases as items are received against the order.\n        \n- The **Purchase Status** indicates the current state of a purchase order. Below are the statuses and their meanings:\n    \n    - **Field Descriptions**\n        \n        - **Created**:\n            \n            - **Description**: The purchase order has been created in the system, but no goods have been received yet.\n                \n            - **Ordered Quantity**: This shows the total quantity of items requested in the order.\n                \n            - **Available Quantity**: This will remain at **0** until goods are received.\n                \n        - **Partially Paid**:\n            \n            - **Description**: A portion of the ordered goods has been received and paid for, but the full quantity and payment are still pending.\n                \n            - **Ordered Quantity**: Displays the original total quantity ordered.\n                \n            - **Available Quantity**: Updates dynamically based on the quantity of goods that have been received so far.\n                \n        - **Billed**:\n            \n            - **Description**: The entire purchase order has been fulfilled. All items have been received, and payment has been completed.\n                \n            - **Ordered Quantity**: Matches the original order.\n                \n            - **Available Quantity**: Matches the **Ordered Quantity**, indicating that all goods have been received.",
+        "operationId": "CREATEPURCHASE",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATEPURCHASEREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "warehouseId": "67092f2a993475e94fc15294",
+                        "transporterId": "66d362e3597f4294215ed066",
+                        "orderId": "67182bbfd929d9c3c48e821a",
+                        "items": [
+                          {
+                            "itemId": "66d82817fa547defd0c85888",
+                            "quantity": 100,
+                            "pickup": "plant"
+                          },
+                          {
+                            "itemId": "67092f7c993475e94fc152aa",
+                            "quantity": 500,
+                            "pickup": "plant"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "warehouseId": "67092f2a993475e94fc15294",
+                "transporterId": "66d362e3597f4294215ed066",
+                "orderId": "67182bbfd929d9c3c48e821a",
+                "items": [
+                  {
+                    "itemId": "66d82817fa547defd0c85888",
+                    "quantity": 100,
+                    "pickup": "plant"
+                  },
+                  {
+                    "itemId": "67092f7c993475e94fc152aa",
+                    "quantity": 500,
+                    "pickup": "plant"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/purchase/{purchaseId}": {
+      "delete": {
+        "tags": [
+          "PURCHASE"
+        ],
+        "summary": "DELETE PURCHASE",
+        "description": "This is a **CRITICAL API** not available over the dashboard but is working in the backend processes for internal team.",
+        "operationId": "DELETEPURCHASE",
+        "parameters": [
+          {
+            "name": "purchaseId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_purchase_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/sale": {
+      "get": {
+        "tags": [
+          "SALE"
+        ],
+        "summary": "ALL SALES",
+        "description": "Fetching all the sales created under an specified organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLSALES",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/sale/{saleId}": {
+      "get": {
+        "tags": [
+          "SALE"
+        ],
+        "summary": "FILTER BY SALE ID",
+        "description": "Specify the **Organization Id & Sales Id** (Remeber the organization Id will be the Database Identity provided and Sales Id u have to specify for any created past Purchase)",
+        "operationId": "FILTERBYSALEID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "saleId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_sales_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/sales-between-dates": {
+      "get": {
+        "tags": [
+          "SALE"
+        ],
+        "summary": "FILTER SALES BETWEEN DATES",
+        "description": "Specify the **Start Date** and **End Date** and in between the sales created will be fetched in there.",
+        "operationId": "FILTERSALESBETWEENDATES",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/sale": {
+      "post": {
+        "tags": [
+          "SALE"
+        ],
+        "summary": "CREATE SALE",
+        "description": "Create a new sale in organization specify the key-values which has been asked including :\n\n- **Buyer Selection :**\n    \n    - Select the buyer whose sales you would like to create.\n        \n- **Invoice Date :**\n    \n    - Date at which a purchase **(**physically getting the booked items) and the invoice of the sales will be shared.\n        \n- **Invoice Number :**\n    \n    - A unique set of numbers and alphabets (_**'BO1035'**_ example) is entered in reference with the Booking between the **buyer** and **trader (self)**\n        \n- **Warehouse :**\n    \n    - This is the **Warehouse Identity** in which the Booking will shipped.\n        \n- **Transporter :**\n    \n    - This is the **Transporter Identity** by whom the Booking is transported.\n        \n- **Sales Status Descriptions**\n    \n    - **Booked Quantity**: Represents the number of items booked when the sales order was created. This value is fixed and does not change.\n        \n    - **Available Quantity**: Tracks the number of items sent so far. It starts at **0** and increases as items are sent against the booking.\n        \n- The **Sales Status** indicates the current state of a sale order. Below are the statuses and their meanings:\n    \n    - **Field Descriptions**\n        \n        - **Created**:\n            \n            - **Description**: The booked order has been created in the system, but no goods have been sent yet.\n                \n            - **Booked Quantity**: This shows the total quantity of items requested in the booking.\n                \n            - **Available Quantity**: This will remain at **0** until goods are sent.\n                \n        - **Partially Sold**:\n            \n            - **Description**: A portion of the booked goods has been send and get paid for, but the full quantity and payment are still pending.\n                \n            - **Booked Quantity**: Displays the original total quantity booked.\n                \n            - **Available Quantity**: Updates dynamically based on the quantity of goods that have been sent so far.\n                \n        - **Fully Sold:**\n            \n            - **Description**: The entire sale order has been fulfilled. All items have been sent, and payment has been completed.\n                \n            - **Booked Quantity**: Matches the original booking.\n                \n            - **Available Quantity**: Matches the **Booked Quantity**, indicating that all goods have been sent.",
+        "operationId": "CREATESALE",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATESALEREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "warehouseId": "670ebd6fee836d79104d349c",
+                        "bookingId": "67125a8352c09e22aafcb7e8",
+                        "transporterId": "670ebea0ee836d79104d34b0",
+                        "organization": "64d22f5a8b3b9f47a3b0e7f1",
+                        "buyerId": "670ebe93ee836d79104d34ae",
+                        "items": [
+                          {
+                            "itemId": "670ec002ee836d79104d34b7",
+                            "quantity": 3000,
+                            "pickup": "plant"
+                          },
+                          {
+                            "itemId": "670ebda5ee836d79104d349e",
+                            "quantity": 400,
+                            "pickup": "plant"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "warehouseId": "670ebd6fee836d79104d349c",
+                "bookingId": "67125a8352c09e22aafcb7e8",
+                "transporterId": "670ebea0ee836d79104d34b0",
+                "organization": "64d22f5a8b3b9f47a3b0e7f1",
+                "buyerId": "670ebe93ee836d79104d34ae",
+                "items": [
+                  {
+                    "itemId": "670ec002ee836d79104d34b7",
+                    "quantity": 3000,
+                    "pickup": "plant"
+                  },
+                  {
+                    "itemId": "670ebda5ee836d79104d349e",
+                    "quantity": 400,
+                    "pickup": "plant"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/prices": {
+      "get": {
+        "tags": [
+          "ITEM PRICES"
+        ],
+        "summary": "ALL PRICES",
+        "description": "Fetching all the prices of each item enrolled in the organization  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLPRICES",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/warehouseprices/{warehouseId}": {
+      "get": {
+        "tags": [
+          "ITEM PRICES"
+        ],
+        "summary": "ITEM PRICE BY WAREHOUSE ID",
+        "description": "Specify the **warehouse Id** & **organization Id** to fetch the items price of that item.",
+        "operationId": "ITEMPRICEBYWAREHOUSEID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_warehouse_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/warehouse/{warehouseId}/itemprice/{itemId}": {
+      "get": {
+        "tags": [
+          "ITEM PRICES"
+        ],
+        "summary": "ITEM PRICE BY ITEM ID",
+        "description": "Fetching the **Item price** by **Item Id** of a specific **Warehouse**. (specify the warehouse Id, Organization Id will be the Database Organization Id, Item Need to be fetched)",
+        "operationId": "ITEMPRICEBYITEMID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_warehouse_id"
+              ]
+            }
+          },
+          {
+            "name": "itemId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_item_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{orgId}/history/{warehouseId}": {
+      "get": {
+        "tags": [
+          "ITEM PRICES"
+        ],
+        "summary": "ITEM PRICE HISTORY",
+        "description": "Fetch all the item price history from the warehouse (Specify the Organization Id : **Database** **Organization** **Id** and the **Warehouse Id**)",
+        "operationId": "ITEMPRICEHISTORY",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_warehouse_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/add": {
+      "post": {
+        "tags": [
+          "ITEM PRICES"
+        ],
+        "summary": "CREATE ITEM PRICE",
+        "description": "Enter the item prices on the bases of the categories like :  \n**Rack, Plant, Depot, Company Price.**",
+        "operationId": "CREATEITEMPRICE",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATEITEMPRICEREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "warehouseId": "6752c3d4e76cdcab7db4a01d",
+                        "prices": [
+                          {
+                            "itemId": "6756ecaacc534feb6e0adc43",
+                            "companyPrice": 90000,
+                            "rackPrice": 209909870,
+                            "plantPrice": 100010,
+                            "depoPrice": 230980
+                          }
+                        ],
+                        "organization": "64d22f5a8b3b9f47a3b0e7f1"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "warehouseId": "6752c3d4e76cdcab7db4a01d",
+                "prices": [
+                  {
+                    "itemId": "6756ecaacc534feb6e0adc43",
+                    "companyPrice": 90000,
+                    "rackPrice": 209909870,
+                    "plantPrice": 100010,
+                    "depoPrice": 230980
+                  }
+                ],
+                "organization": "64d22f5a8b3b9f47a3b0e7f1"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/totalsales/{orgId}": {
+      "get": {
+        "tags": [
+          "TOTAL SALES"
+        ],
+        "summary": "ALL TOTAL SALES",
+        "description": "Fetch all the sales history specify the Organization Id (this organization id will be : **Database Organization Id**)",
+        "operationId": "ALLTOTALSALES",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/totalsales/{orgId}/{saleId}": {
+      "get": {
+        "tags": [
+          "TOTAL SALES"
+        ],
+        "summary": "FILTER TOTAL SALES BY SALES ID",
+        "description": "Specify the **Organization Id & Sales Id** (Remeber the organization Id will be the Database Identity provided and Sales Id u have to specify for any created past Purchase)",
+        "operationId": "FILTERTOTALSALESBYSALESID",
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "specify_organization_id"
+              ]
+            }
+          },
+          {
+            "name": "saleId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_sales_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/totalsales": {
+      "post": {
+        "tags": [
+          "TOTAL SALES"
+        ],
+        "summary": "CREATE TOTAL SALES",
+        "description": "This will be a part of sales creation where multiple sales grouped up and create a single invoice for multiple sales available out there.",
+        "operationId": "CREATETOTALSALES",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CREATETOTALSALESREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "saleIds": [
+                          "670f9e04c91660243792b28e",
+                          "670f9e02c91660243792b275"
+                        ],
+                        "organization": "64d22f5a8b3b9f47a3b0e7f1",
+                        "totalAmount": "700000"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "saleIds": [
+                  "670f9e04c91660243792b28e",
+                  "670f9e02c91660243792b275"
+                ],
+                "organization": "64d22f5a8b3b9f47a3b0e7f1",
+                "totalAmount": "700000"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/totalsale/{totalsaleId}": {
+      "delete": {
+        "tags": [
+          "TOTAL SALES"
+        ],
+        "summary": "DELETE TOTAL SALES",
+        "description": "This is a **CRITICAL API** not available over the dashboard but is working in the backend processes for internal team.",
+        "operationId": "DELETETOTALSALES",
+        "parameters": [
+          {
+            "name": "totalsaleId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_totalsales_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/sign_ins": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "LOGIN",
+        "description": "This will be Login API to the Dashboard using the clerk authentication system.  \n**(Remember : only those who are having their account will be able to login).**",
+        "operationId": "LOGIN",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "strategy",
+                  "identifier",
+                  "password"
+                ],
+                "type": "object",
+                "properties": {
+                  "strategy": {
+                    "type": "string",
+                    "examples": [
+                      "password"
+                    ]
+                  },
+                  "identifier": {
+                    "type": "string",
+                    "examples": [
+                      "enter_mail_address@domain.com"
+                    ]
+                  },
+                  "password": {
+                    "type": "string",
+                    "examples": [
+                      "enter_password_here"
+                    ]
+                  }
+                },
+                "contentMediaType": "application/x-www-form-urlencoded"
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://clerk.bargainwale.com/v1/client",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/sign_ups": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "SIGN-UP",
+        "description": "This will be Signup API to the Dashboard using the clerk authentication system.  \n**(Remember : Only those who have the background verification and legally consulted with our team will be able to have their account onboard).**",
+        "operationId": "SIGN-UP",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "encoding": {},
+              "schema": {
+                "required": [
+                  "transfer",
+                  "password",
+                  "first_name",
+                  "last_name",
+                  "username",
+                  "email_address",
+                  "phone_number"
+                ],
+                "type": "object",
+                "properties": {
+                  "transfer": {
+                    "type": "boolean",
+                    "examples": [
+                      true
+                    ]
+                  },
+                  "password": {
+                    "type": "string",
+                    "examples": [
+                      "create_password"
+                    ]
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "examples": [
+                      "enter_first_name"
+                    ]
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "examples": [
+                      "enter_family_name"
+                    ]
+                  },
+                  "username": {
+                    "type": "string",
+                    "examples": [
+                      "enter_username"
+                    ]
+                  },
+                  "email_address": {
+                    "type": "string",
+                    "examples": [
+                      "enter_email_address"
+                    ]
+                  },
+                  "phone_number": {
+                    "type": "string",
+                    "examples": [
+                      "enter_phone_number"
+                    ]
+                  }
+                },
+                "contentMediaType": "application/x-www-form-urlencoded"
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://clerk.bargainwale.com/v1/client",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/sessions/{session_id}/remove": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "REMOVE SESSION BY ID",
+        "description": "Remove the current active session (logged in) by session id generated by the clerk.",
+        "operationId": "REMOVESESSIONBYID",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://clerk.bargainwale.com/v1/client",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/checkuser": {
+      "post": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "CHECK USER DETAILS",
+        "description": "Check for the user details using the userId and check for it's availability.",
+        "operationId": "CHECKUSERDETAILS",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CHECKUSERDETAILSREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "clerkId": "user_2qGy4skt0mFPGPN5dDkwOpkzIfT"
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "clerkId": "user_2qGy4skt0mFPGPN5dDkwOpkzIfT"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/sessions": {
+      "delete": {
+        "tags": [
+          "USER"
+        ],
+        "summary": "REMOVE ALL SESSIONS",
+        "description": "This is **CRITICAL** **API** which helps in removing all the acitve sessions.",
+        "operationId": "REMOVEALLSESSIONS",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://clerk.bargainwale.com/v1/client",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/mail": {
+      "get": {
+        "tags": [
+          "MAILING SYSTEM"
+        ],
+        "summary": "ALL MAILS",
+        "description": "Fetching all the previously created and sent mails by the system of various categories.",
+        "operationId": "ALLMAILS",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/mail/{mailId}": {
+      "get": {
+        "tags": [
+          "MAILING SYSTEM"
+        ],
+        "summary": "FILTER EMAIL BY ID",
+        "description": "Fetching previous created and sent mails by the system of various categories by specifying mail id.",
+        "operationId": "FILTEREMAILBYID",
+        "parameters": [
+          {
+            "name": "mailId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_mail_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/sendMail": {
+      "post": {
+        "tags": [
+          "MAILING SYSTEM"
+        ],
+        "summary": "SEND MAIL",
+        "description": "This is mail creation system which works in generating and executing the mails over operations.",
+        "operationId": "SENDMAIL",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/SENDMAILREQUEST"
+                  },
+                  {
+                    "examples": [
+                      {
+                        "recipient": {
+                          "email": "22107@iiitu.ac.in",
+                          "name": "Amrutansh Jha"
+                        },
+                        "subject": "Order Confirmation",
+                        "body": "<html><body><h1>Your Order is Confirmed!</h1><p>Thank you for your order. Your order ID is <strong>#123456</strong>.</p></body></html>",
+                        "transactionDetails": {
+                          "transactionType": "order",
+                          "transactionId": "60b8f5f2b35f3e23b8a21457"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "contentMediaType": "application/json"
+              },
+              "example": {
+                "recipient": {
+                  "email": "22107@iiitu.ac.in",
+                  "name": "Amrutansh Jha"
+                },
+                "subject": "Order Confirmation",
+                "body": "<html><body><h1>Your Order is Confirmed!</h1><p>Thank you for your order. Your order ID is <strong>#123456</strong>.</p></body></html>",
+                "transactionDetails": {
+                  "transactionType": "order",
+                  "transactionId": "60b8f5f2b35f3e23b8a21457"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/retryEmail": {
+      "post": {
+        "tags": [
+          "MAILING SYSTEM"
+        ],
+        "summary": "RETRY MAIL",
+        "description": "This is a resend mail request.",
+        "operationId": "RETRYMAIL",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/organization": {
+      "get": {
+        "tags": [
+          "ORGANIZATION"
+        ],
+        "summary": "ALL ORGANIZATIONS",
+        "description": "Fetching all the organization.  \nRemeber the **:orgId** here will be Database assigned Identity (id).",
+        "operationId": "ALLORGANIZATIONS",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "ORGANIZATION"
+        ],
+        "summary": "CREATE ORGANIZATION",
+        "description": "Create a new organization specifying the organization **name**",
+        "operationId": "CREATEORGANIZATION",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/{clerkOrgId}/organization": {
+      "get": {
+        "tags": [
+          "ORGANIZATION"
+        ],
+        "summary": "ORGANIZATION BY CLERK ORGANIZATION",
+        "description": "Get database organization using clerk organization id created and assigned at the time of account creation.",
+        "operationId": "ORGANIZATIONBYCLERKORGANIZATION",
+        "parameters": [
+          {
+            "name": "clerkOrgId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_clerk_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/api\n/organization/{organizationId}": {
+      "get": {
+        "tags": [
+          "ORGANIZATION"
+        ],
+        "summary": "FILTER BY ORGANIZATION ID",
+        "description": "Select the organization (specify organization identity element **(id)** to get the organization entry details.",
+        "operationId": "FILTERBYORGANIZATIONID",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "ORGANIZATION"
+        ],
+        "summary": "UPDATE ORGANIZATION",
+        "description": "Use to update the existing organization by organization name.",
+        "operationId": "UPDATEORGANIZATION",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "ORGANIZATION"
+        ],
+        "summary": "DELETE ORGANIZATION",
+        "description": "This is a **CRITICAL API** not available over the dashboard but is working in the backend processes for internal team.",
+        "operationId": "DELETEORGANIZATION",
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "enter_organization_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "servers": [
+          {
+            "url": "https://api.bargainwale.com",
+            "variables": {}
+          }
+        ]
+      },
+      "parameters": []
+    }
+  },
+  "components": {
+    "schemas": {
+      "CREATEWAREHOUSEREQUEST": {
+        "title": "CREATEWAREHOUSEREQUEST",
+        "required": [
+          "name",
+          "location",
+          "organization",
+          "warehouseManager"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {}
+            ]
+          },
+          "organization": {
+            "type": "string"
+          },
+          "warehouseManager": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WarehouseManager"
+              },
+              {}
+            ]
+          }
+        },
+        "examples": [
+          {
+            "name": "enter_warehouse_name",
+            "location": {
+              "state": "enter_state",
+              "city": "enter_city_name"
+            },
+            "organization": "specify_organization_name",
+            "warehouseManager": {
+              "name": "enter_manager_name",
+              "email": "manager@example.com"
+            }
+          }
+        ]
+      },
+      "Location": {
+        "title": "Location",
+        "required": [
+          "state",
+          "city"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "state": "enter_state",
+            "city": "enter_city_name"
+          }
+        ]
+      },
+      "WarehouseManager": {
+        "title": "WarehouseManager",
+        "required": [
+          "name",
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "name": "enter_manager_name",
+            "email": "manager@example.com"
+          }
+        ]
+      },
+      "UPDATEWAREHOUSEREQUEST": {
+        "title": "UPDATEWAREHOUSEREQUEST",
+        "required": [
+          "name",
+          "location",
+          "organization",
+          "warehouseManager"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {}
+            ]
+          },
+          "organization": {
+            "type": "string"
+          },
+          "warehouseManager": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WarehouseManager"
+              },
+              {}
+            ]
+          }
+        },
+        "examples": [
+          {
+            "name": "enter_warehouse_name",
+            "location": {
+              "state": "enter_state",
+              "city": "enter_city_name"
+            },
+            "organization": "specify_organization_name",
+            "warehouseManager": {
+              "name": "enter_manager_name",
+              "email": "manager@example.com"
+            }
+          }
+        ]
+      },
+      "CREATEORDERREQUEST": {
+        "title": "CREATEORDERREQUEST",
+        "required": [
+          "companyBargainDate",
+          "companyBargainNo",
+          "items",
+          "totalAmount",
+          "inco",
+          "billType",
+          "status",
+          "organization",
+          "warehouse",
+          "manufacturer",
+          "transportCatigory",
+          "paymentDays",
+          "reminderDays",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "companyBargainDate": {
+            "type": "string"
+          },
+          "companyBargainNo": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item"
+            },
+            "description": ""
+          },
+          "totalAmount": {
+            "type": "number"
+          },
+          "inco": {
+            "type": "string"
+          },
+          "billType": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "warehouse": {
+            "type": "string"
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "transportCatigory": {
+            "type": "string"
+          },
+          "paymentDays": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "reminderDays": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "contentEncoding": "int32"
+            },
+            "description": ""
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "companyBargainDate": "2023-09-25T00:00:00Z",
+            "companyBargainNo": "BARGAIN12345",
+            "items": [
+              {
+                "itemId": "66d82817fa547defd0c85888",
+                "quantity": 100,
+                "pickup": "plant",
+                "baseRate": 50.0,
+                "taxpaidAmount": 1000.0,
+                "contNumber": 1,
+                "gst": 18,
+                "cgst": 9,
+                "sgst": 9,
+                "igst": 0,
+                "taxableAmount": 45000
+              },
+              {
+                "itemId": "67092f7c993475e94fc152aa",
+                "quantity": 500,
+                "pickup": "plant",
+                "baseRate": 50.0,
+                "taxpaidAmount": 1000.0,
+                "contNumber": 1,
+                "gst": 18,
+                "cgst": 9,
+                "sgst": 9,
+                "igst": 0,
+                "taxableAmount": 45000
+              }
+            ],
+            "totalAmount": 1000.0,
+            "inco": "EXW",
+            "billType": "Virtual Billed",
+            "status": "created",
+            "organization": "64f0216c4b5b4c5a84b9d564",
+            "warehouse": "67092f2a993475e94fc15294",
+            "manufacturer": "64d476b697522cdfbfe0eeb2",
+            "transportCatigory": "depot",
+            "paymentDays": 21,
+            "reminderDays": [
+              7,
+              3,
+              1
+            ],
+            "description": "Order for new stock"
+          }
+        ]
+      },
+      "Item": {
+        "title": "Item",
+        "required": [
+          "itemId",
+          "quantity",
+          "pickup",
+          "baseRate",
+          "taxpaidAmount",
+          "contNumber",
+          "gst",
+          "cgst",
+          "sgst",
+          "igst",
+          "taxableAmount"
+        ],
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "pickup": {
+            "type": "string"
+          },
+          "baseRate": {
+            "type": "number"
+          },
+          "taxpaidAmount": {
+            "type": "number"
+          },
+          "contNumber": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "gst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "cgst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "sgst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "igst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "taxableAmount": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          }
+        },
+        "examples": [
+          {
+            "itemId": "66d82817fa547defd0c85888",
+            "quantity": 100,
+            "pickup": "plant",
+            "baseRate": 50.0,
+            "taxpaidAmount": 1000.0,
+            "contNumber": 1,
+            "gst": 18,
+            "cgst": 9,
+            "sgst": 9,
+            "igst": 0,
+            "taxableAmount": 45000
+          }
+        ]
+      },
+      "UPDATEORDERREQUEST": {
+        "title": "UPDATEORDERREQUEST",
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item1"
+            },
+            "description": ""
+          }
+        },
+        "examples": [
+          {
+            "items": [
+              {
+                "item": "enter_item_id",
+                "quantity": 90
+              }
+            ]
+          }
+        ]
+      },
+      "Item1": {
+        "title": "Item1",
+        "required": [
+          "item",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          }
+        },
+        "examples": [
+          {
+            "item": "enter_item_id",
+            "quantity": 90
+          }
+        ]
+      },
+      "CREATEBOOKINGREQUEST": {
+        "title": "CREATEBOOKINGREQUEST",
+        "required": [
+          "BargainDate",
+          "BargainNo",
+          "items",
+          "validity",
+          "inco",
+          "deliveryOption",
+          "organization",
+          "warehouse",
+          "buyer",
+          "deliveryAddress",
+          "status",
+          "reminderDays",
+          "description",
+          "createdAt",
+          "updatedAt"
+        ],
+        "type": "object",
+        "properties": {
+          "BargainDate": {
+            "type": "string"
+          },
+          "BargainNo": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item2"
+            },
+            "description": ""
+          },
+          "validity": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "inco": {
+            "type": "string"
+          },
+          "deliveryOption": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "warehouse": {
+            "type": "string"
+          },
+          "buyer": {
+            "type": "string"
+          },
+          "deliveryAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DeliveryAddress"
+              },
+              {}
+            ]
+          },
+          "status": {
+            "type": "string"
+          },
+          "reminderDays": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "contentEncoding": "int32"
+            },
+            "description": ""
+          },
+          "description": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "BargainDate": "2024-09-25T00:00:00.000Z",
+            "BargainNo": "BRG123456",
+            "items": [
+              {
+                "item": "66d82817fa547defd0c85888",
+                "quantity": 200,
+                "discount": 0,
+                "pickup": "plant",
+                "taxpaidAmount": 1500,
+                "contNumber": 9876543210,
+                "basePrice": 110,
+                "gst": 18,
+                "cgst": 9,
+                "sgst": 9,
+                "igst": 0,
+                "taxableAmount": 45000
+              },
+              {
+                "item": "67092f7c993475e94fc152aa",
+                "itemPrice": "66f6b4fdf2c1929a3670189e",
+                "quantity": 300,
+                "discount": 0,
+                "pickup": "plant",
+                "taxpaidAmount": 700,
+                "contNumber": 9876543211,
+                "basePrice": 105
+              }
+            ],
+            "validity": 21,
+            "inco": "EXW",
+            "deliveryOption": "Delivery",
+            "organization": "64d22f5a8b3b9f47a3b0e7f1",
+            "warehouse": "671d0e84b912e6dfd3b234b1",
+            "buyer": "670ebe93ee836d79104d34ae",
+            "deliveryAddress": {
+              "addressLine1": "123 Street Name",
+              "addressLine2": "Suite 456",
+              "city": "Mumbai",
+              "state": "Maharashtra",
+              "pinCode": "400001"
+            },
+            "status": "created",
+            "reminderDays": [
+              7,
+              3,
+              1
+            ],
+            "description": "This is a booking for the bulk order of items.",
+            "createdAt": "2024-09-25T10:00:00.000Z",
+            "updatedAt": "2024-09-25T10:00:00.000Z"
+          }
+        ]
+      },
+      "Item2": {
+        "title": "Item2",
+        "required": [
+          "item",
+          "quantity",
+          "discount",
+          "pickup",
+          "taxpaidAmount",
+          "contNumber",
+          "basePrice"
+        ],
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "discount": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "pickup": {
+            "type": "string"
+          },
+          "taxpaidAmount": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "contNumber": {
+            "type": "integer",
+            "contentEncoding": "int64"
+          },
+          "basePrice": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "gst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "cgst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "sgst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "igst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "taxableAmount": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "itemPrice": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "item": "66d82817fa547defd0c85888",
+            "quantity": 200,
+            "discount": 0,
+            "pickup": "plant",
+            "taxpaidAmount": 1500,
+            "contNumber": 9876543210,
+            "basePrice": 110,
+            "gst": 18,
+            "cgst": 9,
+            "sgst": 9,
+            "igst": 0,
+            "taxableAmount": 45000
+          }
+        ]
+      },
+      "DeliveryAddress": {
+        "title": "DeliveryAddress",
+        "required": [
+          "addressLine1",
+          "addressLine2",
+          "city",
+          "state",
+          "pinCode"
+        ],
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "type": "string"
+          },
+          "addressLine2": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "pinCode": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "addressLine1": "123 Street Name",
+            "addressLine2": "Suite 456",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "pinCode": "400001"
+          }
+        ]
+      },
+      "UPDATEBOOKINGBYIDREQUEST": {
+        "title": "UPDATEBOOKINGBYIDREQUEST",
+        "required": [
+          "BargainDate",
+          "BargainNo",
+          "items",
+          "validity",
+          "deliveryOption",
+          "warehouse",
+          "organization",
+          "buyer",
+          "deliveryAddress",
+          "virtualInventoryQuantities",
+          "billedInventoryQuantities",
+          "status",
+          "reminderDays",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "BargainDate": {
+            "type": "string"
+          },
+          "BargainNo": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item1"
+            },
+            "description": ""
+          },
+          "validity": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "deliveryOption": {
+            "type": "string"
+          },
+          "warehouse": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "buyer": {
+            "type": "string"
+          },
+          "deliveryAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DeliveryAddress"
+              },
+              {}
+            ]
+          },
+          "virtualInventoryQuantities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VirtualInventoryQuantity"
+            },
+            "description": ""
+          },
+          "billedInventoryQuantities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BilledInventoryQuantity"
+            },
+            "description": ""
+          },
+          "status": {
+            "type": "string"
+          },
+          "reminderDays": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "contentEncoding": "int32"
+            },
+            "description": ""
+          },
+          "description": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "BargainDate": "2024-09-30T00:00:00.000Z",
+            "BargainNo": "NEW12345",
+            "items": [
+              {
+                "item": "60d5f9f8d5f4b34c2d1a0e89",
+                "quantity": 50
+              }
+            ],
+            "validity": 30,
+            "deliveryOption": "Delivery",
+            "warehouse": "60d5f9f8d5f4b34c2d1a0e90",
+            "organization": "60d5f9f8d5f4b34c2d1a0e91",
+            "buyer": "60d5f9f8d5f4b34c2d1a0e92",
+            "deliveryAddress": {
+              "addressLine1": "123 New Street",
+              "addressLine2": "Apt 4B",
+              "city": "New City",
+              "state": "NC",
+              "pinCode": "12345"
+            },
+            "virtualInventoryQuantities": [
+              {
+                "itemName": "Item A",
+                "quantity": 10
+              }
+            ],
+            "billedInventoryQuantities": [
+              {
+                "itemName": "Item B",
+                "quantity": 40
+              }
+            ],
+            "status": "payment pending",
+            "reminderDays": [
+              5,
+              2,
+              1
+            ],
+            "description": "Updated description for the booking"
+          }
+        ]
+      },
+      "VirtualInventoryQuantity": {
+        "title": "VirtualInventoryQuantity",
+        "required": [
+          "itemName",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "itemName": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          }
+        },
+        "examples": [
+          {
+            "itemName": "Item A",
+            "quantity": 10
+          }
+        ]
+      },
+      "BilledInventoryQuantity": {
+        "title": "BilledInventoryQuantity",
+        "required": [
+          "itemName",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "itemName": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          }
+        },
+        "examples": [
+          {
+            "itemName": "Item B",
+            "quantity": 40
+          }
+        ]
+      },
+      "BOOKINGFORDISCOUNTREQUEST": {
+        "title": "BOOKINGFORDISCOUNTREQUEST",
+        "required": [
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item4"
+            },
+            "description": ""
+          }
+        },
+        "examples": [
+          {
+            "items": [
+              {
+                "item": "66d82817fa547defd0c85888",
+                "discount": 10
+              },
+              {
+                "item": "67092f7c993475e94fc152aa",
+                "discount": 0
+              }
+            ]
+          }
+        ]
+      },
+      "Item4": {
+        "title": "Item4",
+        "required": [
+          "item",
+          "discount"
+        ],
+        "type": "object",
+        "properties": {
+          "item": {
+            "type": "string"
+          },
+          "discount": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          }
+        },
+        "examples": [
+          {
+            "item": "66d82817fa547defd0c85888",
+            "discount": 10
+          }
+        ]
+      },
+      "CREATEITEMREQUEST": {
+        "title": "CREATEITEMREQUEST",
+        "required": [
+          "flavor",
+          "material",
+          "materialdescription",
+          "netweight",
+          "grossweight",
+          "gst",
+          "packaging",
+          "packsize",
+          "staticPrice",
+          "warehouses",
+          "organization"
+        ],
+        "type": "object",
+        "properties": {
+          "flavor": {
+            "type": "string"
+          },
+          "material": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "materialdescription": {
+            "type": "string"
+          },
+          "netweight": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "grossweight": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "gst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "packaging": {
+            "type": "string"
+          },
+          "packsize": {
+            "type": "string"
+          },
+          "staticPrice": {
+            "type": "number"
+          },
+          "warehouses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "organization": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "flavor": "Vanaspati",
+            "material": 180008631,
+            "materialdescription": "RUCHI GOLD PALMOLEIN 870 G PP 1X10- VALUE PACK",
+            "netweight": 450,
+            "grossweight": 480,
+            "gst": 5,
+            "packaging": "box",
+            "packsize": "Consumer Pack",
+            "staticPrice": 150.0,
+            "warehouses": [
+              "66d4b28d94374eea53e1cff3",
+              "64e7f6b8fc13ae1a6f00000c"
+            ],
+            "organization": "64e7f6b8fc13ae1a6f00000d"
+          }
+        ]
+      },
+      "UPDATEITEMBYIDREQUEST": {
+        "title": "UPDATEITEMBYIDREQUEST",
+        "required": [
+          "flavor",
+          "material",
+          "materialdescription",
+          "netweight",
+          "grossweight",
+          "gst",
+          "packaging",
+          "packsize",
+          "staticPrice"
+        ],
+        "type": "object",
+        "properties": {
+          "flavor": {
+            "type": "string"
+          },
+          "material": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "materialdescription": {
+            "type": "string"
+          },
+          "netweight": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "grossweight": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "gst": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "packaging": {
+            "type": "string"
+          },
+          "packsize": {
+            "type": "string"
+          },
+          "staticPrice": {
+            "type": "number"
+          }
+        },
+        "examples": [
+          {
+            "flavor": "basmati",
+            "material": 180008631,
+            "materialdescription": "RUCHI GOLD PALMOLEIN 870 G PP 1X10- VALUE PACK",
+            "netweight": 450,
+            "grossweight": 480,
+            "gst": 5,
+            "packaging": "box",
+            "packsize": "Bulk Pack",
+            "staticPrice": 150.0
+          }
+        ]
+      },
+      "CREATEBUYERREQUEST": {
+        "title": "CREATEBUYERREQUEST",
+        "required": [
+          "buyer",
+          "buyerCompany",
+          "buyerdeliveryAddress",
+          "buyerContact",
+          "buyerEmail",
+          "buyerGstno",
+          "buyerGooglemaps"
+        ],
+        "type": "object",
+        "properties": {
+          "buyer": {
+            "type": "string"
+          },
+          "buyerCompany": {
+            "type": "string"
+          },
+          "buyerdeliveryAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuyerdeliveryAddress"
+              },
+              {}
+            ]
+          },
+          "buyerContact": {
+            "type": "string"
+          },
+          "buyerEmail": {
+            "type": "string"
+          },
+          "buyerGstno": {
+            "type": "string"
+          },
+          "buyerGooglemaps": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "buyer": "John Doe",
+            "buyerCompany": "Doe Industries",
+            "buyerdeliveryAddress": {
+              "addressLine1": "123 Main Street",
+              "addressLine2": "Suite 400",
+              "city": "New York",
+              "state": "NY",
+              "pinCode": "10001"
+            },
+            "buyerContact": "+1-555-1234",
+            "buyerEmail": "johndoe@example.com",
+            "buyerGstno": "22AAAAA0000A1Z5",
+            "buyerGooglemaps": "https://maps.google.com/?q=40.7128,-74.0060"
+          }
+        ]
+      },
+      "BuyerdeliveryAddress": {
+        "title": "BuyerdeliveryAddress",
+        "required": [
+          "addressLine1",
+          "addressLine2",
+          "city",
+          "state",
+          "pinCode"
+        ],
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "type": "string"
+          },
+          "addressLine2": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "pinCode": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "addressLine1": "123 Main Street",
+            "addressLine2": "Suite 400",
+            "city": "New York",
+            "state": "NY",
+            "pinCode": "10001"
+          }
+        ]
+      },
+      "CREATETRANSPORTREQUEST": {
+        "title": "CREATETRANSPORTREQUEST",
+        "required": [
+          "transport",
+          "transportType",
+          "transportContact",
+          "transportAgency"
+        ],
+        "type": "object",
+        "properties": {
+          "transport": {
+            "type": "string"
+          },
+          "transportType": {
+            "type": "string"
+          },
+          "transportContact": {
+            "type": "string"
+          },
+          "transportAgency": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "transport": "ABC Logistics",
+            "transportType": "Truck",
+            "transportContact": "9876543210",
+            "transportAgency": "XYZ Transport Agency"
+          }
+        ]
+      },
+      "UPDATETRANSPORTBYIDREQUEST": {
+        "title": "UPDATETRANSPORTBYIDREQUEST",
+        "required": [
+          "transport",
+          "transportType",
+          "transportContact",
+          "transportAgency"
+        ],
+        "type": "object",
+        "properties": {
+          "transport": {
+            "type": "string"
+          },
+          "transportType": {
+            "type": "string"
+          },
+          "transportContact": {
+            "type": "string"
+          },
+          "transportAgency": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "transport": "DEF Logistics",
+            "transportType": "Container",
+            "transportContact": "1234567890",
+            "transportAgency": "DEF Transport Agency"
+          }
+        ]
+      },
+      "CREATEMANUFACTURERREQUEST": {
+        "title": "CREATEMANUFACTURERREQUEST",
+        "required": [
+          "manufacturer",
+          "manufacturerCompany",
+          "manufacturerdeliveryAddress",
+          "manufacturerContact",
+          "manufacturerEmail",
+          "manufacturerGstno",
+          "manufacturerGooglemaps"
+        ],
+        "type": "object",
+        "properties": {
+          "manufacturer": {
+            "type": "string"
+          },
+          "manufacturerCompany": {
+            "type": "string"
+          },
+          "manufacturerdeliveryAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ManufacturerdeliveryAddress"
+              },
+              {}
+            ]
+          },
+          "manufacturerContact": {
+            "type": "string"
+          },
+          "manufacturerEmail": {
+            "type": "string"
+          },
+          "manufacturerGstno": {
+            "type": "string"
+          },
+          "manufacturerGooglemaps": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "manufacturer": "ABC Manufacturing Co.",
+            "manufacturerCompany": "ABC Industries",
+            "manufacturerdeliveryAddress": {
+              "addressLine1": "123 Main St",
+              "addressLine2": "Suite 400",
+              "city": "Springfield",
+              "state": "IL",
+              "pinCode": "62701"
+            },
+            "manufacturerContact": "123-456-7890",
+            "manufacturerEmail": "contact@abcindustries.com",
+            "manufacturerGstno": "29ABCDE1234F1Z5",
+            "manufacturerGooglemaps": "https://maps.google.com/?q=123+Main+St,+Springfield,+IL"
+          }
+        ]
+      },
+      "ManufacturerdeliveryAddress": {
+        "title": "ManufacturerdeliveryAddress",
+        "required": [
+          "addressLine1",
+          "addressLine2",
+          "city",
+          "state",
+          "pinCode"
+        ],
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "type": "string"
+          },
+          "addressLine2": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "pinCode": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "addressLine1": "123 Main St",
+            "addressLine2": "Suite 400",
+            "city": "Springfield",
+            "state": "IL",
+            "pinCode": "62701"
+          }
+        ]
+      },
+      "UPDATEMANUFACTURERBYIDREQUEST": {
+        "title": "UPDATEMANUFACTURERBYIDREQUEST",
+        "required": [
+          "manufacturer",
+          "manufacturerCompany",
+          "manufacturerdeliveryAddress",
+          "manufacturerContact",
+          "manufacturerEmail",
+          "manufacturerGstno",
+          "manufacturerGooglemaps"
+        ],
+        "type": "object",
+        "properties": {
+          "manufacturer": {
+            "type": "string"
+          },
+          "manufacturerCompany": {
+            "type": "string"
+          },
+          "manufacturerdeliveryAddress": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ManufacturerdeliveryAddress"
+              },
+              {}
+            ]
+          },
+          "manufacturerContact": {
+            "type": "string"
+          },
+          "manufacturerEmail": {
+            "type": "string"
+          },
+          "manufacturerGstno": {
+            "type": "string"
+          },
+          "manufacturerGooglemaps": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "manufacturer": "XYZ Manufacturing Co.",
+            "manufacturerCompany": "XYZ Industries",
+            "manufacturerdeliveryAddress": {
+              "addressLine1": "456 Elm St",
+              "addressLine2": "Apt 5B",
+              "city": "Metropolis",
+              "state": "NY",
+              "pinCode": "10001"
+            },
+            "manufacturerContact": "987-654-3210",
+            "manufacturerEmail": "info@xyzindustries.com",
+            "manufacturerGstno": "07ABCDE1234F2Z6",
+            "manufacturerGooglemaps": "https://maps.google.com/?q=456+Elm+St,+Metropolis,+NY"
+          }
+        ]
+      },
+      "CREATEPURCHASEREQUEST": {
+        "title": "CREATEPURCHASEREQUEST",
+        "required": [
+          "warehouseId",
+          "transporterId",
+          "orderId",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouseId": {
+            "type": "string"
+          },
+          "transporterId": {
+            "type": "string"
+          },
+          "orderId": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item5"
+            },
+            "description": ""
+          }
+        },
+        "examples": [
+          {
+            "warehouseId": "67092f2a993475e94fc15294",
+            "transporterId": "66d362e3597f4294215ed066",
+            "orderId": "67182bbfd929d9c3c48e821a",
+            "items": [
+              {
+                "itemId": "66d82817fa547defd0c85888",
+                "quantity": 100,
+                "pickup": "plant"
+              },
+              {
+                "itemId": "67092f7c993475e94fc152aa",
+                "quantity": 500,
+                "pickup": "plant"
+              }
+            ]
+          }
+        ]
+      },
+      "Item5": {
+        "title": "Item5",
+        "required": [
+          "itemId",
+          "quantity",
+          "pickup"
+        ],
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "pickup": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "itemId": "66d82817fa547defd0c85888",
+            "quantity": 100,
+            "pickup": "plant"
+          }
+        ]
+      },
+      "CREATESALEREQUEST": {
+        "title": "CREATESALEREQUEST",
+        "required": [
+          "warehouseId",
+          "bookingId",
+          "transporterId",
+          "organization",
+          "buyerId",
+          "items"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouseId": {
+            "type": "string"
+          },
+          "bookingId": {
+            "type": "string"
+          },
+          "transporterId": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "buyerId": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item5"
+            },
+            "description": ""
+          }
+        },
+        "examples": [
+          {
+            "warehouseId": "670ebd6fee836d79104d349c",
+            "bookingId": "67125a8352c09e22aafcb7e8",
+            "transporterId": "670ebea0ee836d79104d34b0",
+            "organization": "64d22f5a8b3b9f47a3b0e7f1",
+            "buyerId": "670ebe93ee836d79104d34ae",
+            "items": [
+              {
+                "itemId": "670ec002ee836d79104d34b7",
+                "quantity": 3000,
+                "pickup": "plant"
+              },
+              {
+                "itemId": "670ebda5ee836d79104d349e",
+                "quantity": 400,
+                "pickup": "plant"
+              }
+            ]
+          }
+        ]
+      },
+      "CREATEITEMPRICEREQUEST": {
+        "title": "CREATEITEMPRICEREQUEST",
+        "required": [
+          "warehouseId",
+          "prices",
+          "organization"
+        ],
+        "type": "object",
+        "properties": {
+          "warehouseId": {
+            "type": "string"
+          },
+          "prices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Price"
+            },
+            "description": ""
+          },
+          "organization": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "warehouseId": "6752c3d4e76cdcab7db4a01d",
+            "prices": [
+              {
+                "itemId": "6756ecaacc534feb6e0adc43",
+                "companyPrice": 90000,
+                "rackPrice": 209909870,
+                "plantPrice": 100010,
+                "depoPrice": 230980
+              }
+            ],
+            "organization": "64d22f5a8b3b9f47a3b0e7f1"
+          }
+        ]
+      },
+      "Price": {
+        "title": "Price",
+        "required": [
+          "itemId",
+          "companyPrice",
+          "rackPrice",
+          "plantPrice",
+          "depoPrice"
+        ],
+        "type": "object",
+        "properties": {
+          "itemId": {
+            "type": "string"
+          },
+          "companyPrice": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "rackPrice": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "plantPrice": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          },
+          "depoPrice": {
+            "type": "integer",
+            "contentEncoding": "int32"
+          }
+        },
+        "examples": [
+          {
+            "itemId": "6756ecaacc534feb6e0adc43",
+            "companyPrice": 90000,
+            "rackPrice": 209909870,
+            "plantPrice": 100010,
+            "depoPrice": 230980
+          }
+        ]
+      },
+      "CREATETOTALSALESREQUEST": {
+        "title": "CREATETOTALSALESREQUEST",
+        "required": [
+          "saleIds",
+          "organization",
+          "totalAmount"
+        ],
+        "type": "object",
+        "properties": {
+          "saleIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "organization": {
+            "type": "string"
+          },
+          "totalAmount": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "saleIds": [
+              "670f9e04c91660243792b28e",
+              "670f9e02c91660243792b275"
+            ],
+            "organization": "64d22f5a8b3b9f47a3b0e7f1",
+            "totalAmount": "700000"
+          }
+        ]
+      },
+      "CHECKUSERDETAILSREQUEST": {
+        "title": "CHECKUSERDETAILSREQUEST",
+        "required": [
+          "clerkId"
+        ],
+        "type": "object",
+        "properties": {
+          "clerkId": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "clerkId": "user_2qGy4skt0mFPGPN5dDkwOpkzIfT"
+          }
+        ]
+      },
+      "SENDMAILREQUEST": {
+        "title": "SENDMAILREQUEST",
+        "required": [
+          "recipient",
+          "subject",
+          "body",
+          "transactionDetails"
+        ],
+        "type": "object",
+        "properties": {
+          "recipient": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Recipient"
+              },
+              {}
+            ]
+          },
+          "subject": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          },
+          "transactionDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TransactionDetails"
+              },
+              {}
+            ]
+          }
+        },
+        "examples": [
+          {
+            "recipient": {
+              "email": "22107@iiitu.ac.in",
+              "name": "Amrutansh Jha"
+            },
+            "subject": "Order Confirmation",
+            "body": "<html><body><h1>Your Order is Confirmed!</h1><p>Thank you for your order. Your order ID is <strong>#123456</strong>.</p></body></html>",
+            "transactionDetails": {
+              "transactionType": "order",
+              "transactionId": "60b8f5f2b35f3e23b8a21457"
+            }
+          }
+        ]
+      },
+      "Recipient": {
+        "title": "Recipient",
+        "required": [
+          "email",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "email": "22107@iiitu.ac.in",
+            "name": "Amrutansh Jha"
+          }
+        ]
+      },
+      "TransactionDetails": {
+        "title": "TransactionDetails",
+        "required": [
+          "transactionType",
+          "transactionId"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionType": {
+            "type": "string"
+          },
+          "transactionId": {
+            "type": "string"
+          }
+        },
+        "examples": [
+          {
+            "transactionType": "order",
+            "transactionId": "60b8f5f2b35f3e23b8a21457"
+          }
+        ]
+      }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearer": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "WAREHOUSE",
+      "description": "The Warehouse APIs allow you to manage all aspects of your warehouse operations, including adding new warehouses with details like location and capacity, updating inventory levels, and tracking stock movements between warehouses. These APIs ensure efficient stock allocation, prevent shortages, and provide visibility into inventory across multiple locations."
+    },
+    {
+      "name": "ORDER",
+      "description": "The Order APIs streamline the end-to-end order lifecycle by enabling you to create, update, and manage orders effortlessly. You can track order statuses, process bulk orders, and retrieve detailed order histories with filtering options. These APIs simplify handling transactions, making order management faster and more efficient."
+    },
+    {
+      "name": "BOOKING",
+      "description": "The Booking APIs support seamless scheduling and management of reservations for products or services. You can create and confirm bookings, manage cancellations, and view an organized booking calendar to avoid conflicts. These APIs also allow you to analyze customer booking trends for better planning."
+    },
+    {
+      "name": "ITEM",
+      "description": "The Item APIs help maintain a comprehensive and organized product catalog. With these APIs, you can add, update, or retrieve product details such as descriptions, categories, stock levels, and pricing. They are essential for managing inventory and keeping product information up to date."
+    },
+    {
+      "name": "BUYER",
+      "description": "The Buyer APIs focus on managing customer data and interactions. They allow you to create and update buyer profiles, access purchase histories, and segment buyers for personalized marketing. These APIs help you build stronger customer relationships by providing tailored experiences."
+    },
+    {
+      "name": "TRANSPORT",
+      "description": "The Transport APIs integrate logistics management into your operations by enabling shipment tracking, transporter assignment, and delivery scheduling. These APIs provide real-time updates and ensure efficient and timely order fulfillment while keeping customers informed about their shipments."
+    },
+    {
+      "name": "MANUFACTURER",
+      "description": "The Manufacturer APIs streamline supplier management by allowing you to maintain detailed records of manufacturers, track incoming shipments, and evaluate supplier performance. These APIs also help manage procurement processes by automating supplier interactions and monitoring product availability."
+    },
+    {
+      "name": "PURCHASE",
+      "description": "The Purchase APIs simplify procurement by automating the creation and tracking of purchase orders. You can manage supplier details, monitor incoming inventory, and adjust purchase orders as needed. These APIs ensure seamless integration between procurement and inventory management."
+    },
+    {
+      "name": "SALE",
+      "description": "The Sale APIs provide detailed visibility into your sales transactions. You can record and update sales, track returns or refunds, and retrieve detailed sales reports. These APIs are essential for monitoring business performance, analyzing trends, and identifying best-selling products."
+    },
+    {
+      "name": "ITEM PRICES",
+      "description": "The Item Prices APIs enable dynamic pricing and promotional strategies. You can set up tailored pricing for customer groups, automate discounts, and retrieve product prices with applied rules. These APIs ensure competitive pricing and help drive sales effectively."
+    },
+    {
+      "name": "TOTAL SALES",
+      "description": "The Total Sales APIs offer a consolidated view of your business performance by providing access to sales data across products, regions, and time periods. They include detailed reporting tools to analyze growth trends and export sales data for deeper insights and decision-making."
+    },
+    {
+      "name": "USER",
+      "description": "The User APIs handle account and role management for your platform. They allow you to create user accounts, assign roles and permissions, update profiles, and manage secure authentication. These APIs ensure proper access control and user management."
+    },
+    {
+      "name": "MAILING SYSTEM",
+      "description": "The Mailing System APIs enable automated communication with customers and team members. You can send transactional emails, manage email campaigns, and personalize templates. These APIs ensure effective communication for order updates, marketing, and notifications."
+    },
+    {
+      "name": "ORGANIZATION",
+      "description": "The Organization APIs are designed to manage company-level settings and structures within the platform. These APIs allow you to create and update organizational profiles, configure hierarchical roles, and manage key information such as contact details, operational regions, and business categories. They also enable seamless integration with other modules, ensuring that all organizational data remains synchronized across the platform."
+    }
+  ]
+}
