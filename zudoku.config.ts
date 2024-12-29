@@ -7,8 +7,8 @@ const config: ZudokuConfig = {
     page: {
       logo: {
         src: {
-          light: "/public/logos/normal.png",
-          dark: "/public/logos/light.png"
+          light: "https://res.cloudinary.com/dmzp6notl/image/upload/v1735504289/Frame_111_wom8ot.png",
+          dark: "https://res.cloudinary.com/dmzp6notl/image/upload/v1735505375/Group_7_qq2s3o.png"
         },
       }
     },
